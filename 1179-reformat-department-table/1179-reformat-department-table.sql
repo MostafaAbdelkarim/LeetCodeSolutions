@@ -1,6 +1,6 @@
 # Write your MySQL query statement below
 SELECT id, 
-    SUM(CASE WHEN month = 'Jan' THEN revenue ELSE NULL END) AS 'Jan_Revenue',
+    SUM( IF(month = 'Jan', revenue, NULL)) AS 'Jan_Revenue',
     SUM(CASE WHEN month = 'Feb' THEN revenue ELSE NULL END) AS 'Feb_Revenue',
     SUM(CASE WHEN month = 'Mar' THEN revenue ELSE NULL END) AS 'Mar_Revenue',
     SUM(CASE WHEN month = 'Apr' THEN revenue ELSE NULL END) AS 'Apr_Revenue',
@@ -15,3 +15,5 @@ SELECT id,
 FROM Department
 GROUP BY id
 ORDER BY id
+
+#Using if is faster than CASE WHEN statement
