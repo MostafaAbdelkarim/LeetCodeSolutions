@@ -1,0 +1,14 @@
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+        Arrays.sort(nums);
+        ArrayList<Integer> result = new ArrayList<>();
+        for(int i = 0; i < nums.length; i++){
+            if(nums[i] == target)
+            {
+                result.add(i);
+            }
+            if(nums[i]>target) break; //for skipping unwanted checks
+        }
+        return result;
+    }
+}
