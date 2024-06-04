@@ -1,0 +1,26 @@
+class Solution {
+    public String compressedString(String word) {
+        int count = 1;
+        char t = word.charAt(0);
+        final StringBuilder sb = new StringBuilder();
+        for (int i = 1; i < word.length(); i++) {
+            char c = word.charAt(i);
+            if (t == c) {
+                count++;
+                if (count == 10) {
+                    sb.append(9);
+                    sb.append(c);
+                    count = 1;
+                }
+            } else {
+                sb.append(count);
+                sb.append(t);
+                count = 1;
+                t = c;
+            }
+        }
+        sb.append(count);
+        sb.append(t);
+        return sb.toString();
+    }
+}
