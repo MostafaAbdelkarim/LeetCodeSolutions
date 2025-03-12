@@ -1,12 +1,17 @@
 class Solution {
     public int maximumCount(int[] nums) {
-        int countPos = 0;
-        int countNeg = 0;
-        
-        for (int num : nums) {
-            if (num > 0) countPos++;
-            else if (num < 0) countNeg++;
+        int positiveCounter = 0;
+        int negativeCounter = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                positiveCounter++;
+            } else if (nums[i] < 0) {
+                negativeCounter++;
+            } else {
+                continue;
+            }
         }
-        return Math.max(countPos, countNeg);
+        return Math.max(positiveCounter, negativeCounter);
     }
 }
